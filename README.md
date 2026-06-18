@@ -85,4 +85,4 @@ dashboards a serem mostrados ao usuário:
 
 ## Autor
 
-Desenvolvido por **Felipe Silva Matos** como projeto na cadeira de Internet das Coisas (IoT), do Instituto Federal do Maranhão (IFMA).
+Desenvolvido por **Felipe Silva Matos** e apresentado à professora **Salete Silva Farias** como projeto final na cadeira de Internet das Coisas (IoT), do Instituto Federal do Maranhão (IFMA).
