@@ -1,0 +1,101 @@
+{
+  "version": 1,
+  "author": "FELIPE SILVA MATOS",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-breadboard-half",
+      "id": "bb1",
+      "top": -166.2,
+      "left": -218,
+      "attrs": { "color": "#eeefed" }
+    },
+    {
+      "type": "board-esp32-s2-devkitm-1",
+      "id": "esp",
+      "top": -196.31,
+      "left": 158.17,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "servo1",
+      "top": -118,
+      "left": -390.8,
+      "rotate": 180,
+      "attrs": { "horn": "double" }
+    },
+    {
+      "type": "wokwi-rgb-led",
+      "id": "rgb1",
+      "top": -159.2,
+      "left": -8.5,
+      "attrs": { "common": "cathode" }
+    },
+    { "type": "wokwi-relay-module", "id": "relay1", "top": -230.2, "left": -76.8, "attrs": {} },
+    {
+      "type": "wokwi-hx711",
+      "id": "cell1",
+      "top": -410.2,
+      "left": -170.2,
+      "attrs": { "type": "50kg" }
+    },
+    {
+      "type": "wokwi-hx711",
+      "id": "cell2",
+      "top": 108.2,
+      "left": -160.6,
+      "attrs": { "type": "50kg" }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": 116.7,
+      "left": 130.3,
+      "attrs": { "distance": "219" }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic2",
+      "top": -392.1,
+      "left": 130.3,
+      "attrs": { "distance": "103" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:5V", "bb1:bp.25", "red", [ "v9.6", "h-78.4" ] ],
+    [ "esp:GND.1", "bb1:bn.25", "black", [ "v10.9" ] ],
+    [ "servo1:GND", "bb1:bn.1", "black", [ "h12.4", "v76" ] ],
+    [ "bb1:bp.1", "servo1:V+", "red", [ "v-0.9", "h-17.6", "v-76.8" ] ],
+    [ "bb1:22t.e", "bb1:bn.16", "black", [ "v86.4", "h-28.8", "v19.2" ] ],
+    [ "relay1:VCC", "bb1:bp.9", "red", [ "h0" ] ],
+    [ "relay1:GND", "bb1:bn.10", "black", [ "h-19.2", "v9.2" ] ],
+    [ "servo1:PWM", "esp:17", "green", [ "h364.8", "v-9.8" ] ],
+    [ "relay1:IN", "esp:16", "green", [ "h-9.6", "v57.4", "h201.6", "v86.4" ] ],
+    [ "cell2:GND", "bb1:bn.2", "black", [ "h-19.2", "v-105.9" ] ],
+    [ "cell2:VCC", "bb1:bp.2", "red", [ "h-28.8", "v-115.2", "h19.2" ] ],
+    [ "bb1:bp.24", "bb1:tp.25", "red", [ "v-154.5", "h20.8", "v-19.2" ] ],
+    [ "bb1:tn.22", "bb1:bn.24", "black", [ "v153.5", "h19.2" ] ],
+    [ "cell1:GND", "bb1:tn.1", "black", [ "h-28.8", "v239.7" ] ],
+    [ "cell1:VCC", "bb1:tp.1", "red", [ "h-19.2", "v9.6" ] ],
+    [ "cell2:DT", "esp:26", "green", [ "h-9.6", "v-86.9", "h441.6", "v-76.8" ] ],
+    [ "cell2:SCK", "esp:21", "yellow", [ "h-38.4", "v-87.2", "h489.6", "v-76.8" ] ],
+    [ "cell1:DT", "esp:33", "green", [ "h-38.4", "v133.9", "h489.6", "v153.6" ] ],
+    [ "cell1:SCK", "esp:34", "green", [ "h-48", "v114.4", "h489.6", "v192" ] ],
+    [ "rgb1:R", "bb1:21t.a", "", [ "$bb" ] ],
+    [ "rgb1:COM", "bb1:22t.b", "", [ "$bb" ] ],
+    [ "rgb1:G", "bb1:23t.a", "", [ "$bb" ] ],
+    [ "rgb1:B", "bb1:24t.a", "", [ "$bb" ] ],
+    [ "ultrasonic2:TRIG", "esp:18", "green", [ "v0" ] ],
+    [ "ultrasonic2:ECHO", "esp:19", "green", [ "v0" ] ],
+    [ "ultrasonic2:VCC", "bb1:tp.24", "red", [ "v28.8", "h-134.4" ] ],
+    [ "ultrasonic2:GND", "bb1:tn.25", "black", [ "v86.4", "h-126", "v57.6" ] ],
+    [ "ultrasonic1:TRIG", "esp:4", "green", [ "v28.8", "h-86.8", "v-144", "h0", "v-144" ] ],
+    [ "ultrasonic1:ECHO", "esp:5", "green", [ "v48", "h-87.2", "v-364.8" ] ],
+    [ "ultrasonic1:VCC", "bb1:bp.21", "red", [ "v19.2", "h-163.2", "v-211.2" ] ],
+    [ "ultrasonic1:GND", "bb1:bn.22", "black", [ "v38.4", "h-135.6" ] ]
+  ],
+  "dependencies": {}
+}
